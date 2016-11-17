@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="fontPath" format="string" />
+
+    <declare-styleable name="MyCustomTextView">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomEditText">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomRadioButton">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomCheckBox">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomButton">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomAutoCompleteTextView">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomCheckedTextView">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomMultiAutoCompleteTextView">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomSwitch">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomToggleButton">
+        <attr name="fontPath" />
+    </declare-styleable>
+
+</resources>
