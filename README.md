@@ -1,7 +1,13 @@
 # MyCustomWidgetsLibrary
 This is an Android Library for developer to use android customized widgets and change fonts style easily.
+<br>
+Example is avilable in app module.
 
+<p>
+<img src="https://raw.githubusercontent.com/vatsaldesai92/MyCustomWidgetsLibrary/master/app/src/main/assets/images/mycustomwidgets1.png" alt="screenshot" width="270">
 
+<img src="https://raw.githubusercontent.com/vatsaldesai92/MyCustomWidgetsLibrary/master/app/src/main/assets/images/mycustomwidgets2.png" alt="screenshot" width="270">
+</p>
 
 ##Download
 
@@ -22,14 +28,14 @@ dependencies {
 	}
 ~~~
 
-##Usage:
-~~~
+##Usage
+
 - User can can directly change widget fonts by add bellow code in xml.
 - Add .ttf file in assets folder.
 - app:fontPath contain path of the ttf file that can be from string.xml or direct path of assets.
 
 - if user add .ttf file path in string.xml
-
+~~~
   <string name="font5">verdana.ttf</string>
 
   <com.desai.vatsal.mycustomwidgets.MyCustomTextView
@@ -38,23 +44,22 @@ dependencies {
         android:layout_marginTop="10dp"
         android:text="my dynamic textview 3"
         app:fontPath="@string/font5" />
-
+~~~
 - if user add .ttf file in assets folder
-
+~~~
   <com.desai.vatsal.mycustomwidgets.MyCustomTextView
   	android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="my dynamic textview 1"
         app:fontPath="verdana.ttf" />
-
+~~~
 - if user create folder fonts in assets folder then add .ttf file in it
-
+~~~
   <com.desai.vatsal.mycustomwidgets.MyCustomTextView
   	android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="my dynamic textview 1"
         app:fontPath="fonts/verdana.ttf" />
-
 ~~~
 
 ##All Widgets
