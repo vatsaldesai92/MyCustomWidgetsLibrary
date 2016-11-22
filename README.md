@@ -6,13 +6,14 @@ This is an Android Library for developer to use android customized widgets and c
 #Download
 
 #Gradle:
-
+~~~
 dependencies {
     compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
 }
 ~~~
 
 #Maven:
+~~~
     allprojects {
 		repositories {
 			...
