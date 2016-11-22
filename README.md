@@ -3,16 +3,16 @@ This is an Android Library for developer to use android customized widgets and c
 
 
 
-#Download
+##Download
 
-#Gradle:
+###Gradle:
 ~~~
 dependencies {
     compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
 }
 ~~~
 
-#Maven:
+###Maven:
 ~~~
     allprojects {
 		repositories {
@@ -22,8 +22,8 @@ dependencies {
 	}
 ~~~
 
-#Usage:
-
+##Usage:
+~~~
 - User can can directly change widget fonts by add bellow code in xml.
 - Add .ttf file in assets folder.
 - app:fontPath contain path of the ttf file that can be from string.xml or direct path of assets.
@@ -140,6 +140,7 @@ dependencies {
 ~~~
 
 ##License
+~~~
     Apache Version 2.0
 
     Copyright 2016.
@@ -155,3 +156,4 @@ dependencies {
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+~~~
