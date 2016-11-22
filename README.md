@@ -1,19 +1,18 @@
 # MyCustomWidgetsLibrary
 This is an Android Library for developer to use android customized widgets and change fonts style easily.
 
-<img src="https://raw.githubusercontent.com/L4Digital/FastScroll/master/fastscroll_example.png" alt="screenshot" width="270">
 
 
-##Download
+#Download
 
-####Gradle:
+#Gradle:
 
 dependencies {
     compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
 }
 ~~~
 
-####Maven:
+#Maven:
     allprojects {
 		repositories {
 			...
@@ -22,7 +21,7 @@ dependencies {
 	}
 ~~~
 
-##Usage:
+#Usage:
 
 - User can can directly change widget fonts by add bellow code in xml.
 - Add .ttf file in assets folder.
