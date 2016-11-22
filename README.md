@@ -7,7 +7,7 @@ This is an Android Library for developer to use android customized widgets and c
 ##Download
 
 ####Gradle:
-~~~groovy
+
 dependencies {
     compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
 }
@@ -22,62 +22,122 @@ dependencies {
 	}
 ~~~
 
+##Usage:
 
+- User can can directly change widget fonts by add bellow code in xml.
+- Add .ttf file in assets folder.
+- app:fontPath contain path of the ttf file that can be from string.xml or direct path of assets.
 
-##Usage
-`FastScrollRecyclerView` extends Android's `RecyclerView` and can be setup the same way.
+- if user add .ttf file path in string.xml
 
-~~~java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  <string name="font5">verdana.ttf</string>
 
-    FastScrollRecyclerView recyclerView = (FastScrollRecyclerView) findViewById(R.id.recycler_view);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    recyclerView.setAdapter(new ExampleAdapter());
-}
+  <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+  	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="my dynamic textview 3"
+        app:fontPath="@string/font5" />
+
+- if user add .ttf file in assets folder
+
+  <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+  	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="my dynamic textview 1"
+        app:fontPath="verdana.ttf" />
+
+- if user create folder fonts in assets folder then add .ttf file in it
+
+  <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+  	android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="my dynamic textview 1"
+        app:fontPath="fonts/verdana.ttf" />
+
 ~~~
 
-Add the `FastScrollRecyclerView` to your xml layout and set your customizations using attributes.  
-
-*The parent ViewGroup must be a CoordinatorLayout, FrameLayout, or RelativeLayout in order for the FastScroller to be properly displayed on top of the RecyclerView.*
-
+##All Widgets
 ~~~xml
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <com.l4digital.fastscroll.FastScrollRecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:bubbleColor="#00bb00"
-        app:bubbleTextColor="#ffffff"
-        app:handleColor="#999999"
-        app:trackColor="#bbbbbb"
-        app:hideScrollbar="false"
-        app:showTrack="false" />
+            <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="my dynamic textview 1"
+                app:fontPath="cambriai.ttf" />
 
-</FrameLayout>
+            <com.desai.vatsal.mycustomwidgets.MyCustomEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="my dynamic edittext 1"
+                app:fontPath="@string/font4" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomRadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic radio button 2"
+                app:fontPath="verdana.ttf" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic checkbox 1"
+                app:fontPath="@string/font4" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic button 2"
+                app:fontPath="verdana.ttf" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomAutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic auto complete textview 1"
+                app:fontPath="@string/font5" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomCheckedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic checked textview 1"
+                app:fontPath="cambriai.ttf" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomMultiAutoCompleteTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic multi auto complete textview 1"
+                app:fontPath="@string/font3" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic switch 1"
+                app:fontPath="@string/font3" />
+
+            <com.desai.vatsal.mycustomwidgets.MyCustomToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="my dynamic toggle button 1"
+                app:fontPath="@string/font3" />
+
+</LinearLayout>
 ~~~
-
-Implement the `FastScroller.SectionIndexer` interface in your RecyclerView Adapter and override `getSectionText()`.
-
-~~~java
-class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ViewHolder> implements FastScroller.SectionIndexer {
-
-    ...
-
-    @Override
-    public String getSectionText(int position) {
-        return getItem(position).getIndex();
-    }
-}
-~~~
-
-
 
 ##License
     Apache Version 2.0
