@@ -1,39 +1,8 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+//apply plugin: 'com.github.dcendents.android-maven' // ADD THIS
 
-// This is the library version used when deploying the artifact
-version = "1.0.1"
-
-////////////////////////
-// Bintray configuration
-////////////////////////
-
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'mycustomwidgets'   // Has to be same as your library module name
-
-    publishedGroupId = 'com.desai.vatsal'
-    libraryName = 'MyCustomWidgets'
-    artifact = 'mycustomwidgets'     // Has to be same as your library module name
-
-    libraryDescription = 'This is an Android Library for developer to use android customized widgets and change fonts style easily.'
-
-    // Your github repo link
-    siteUrl = 'https://github.com/nisrulz/UploadToBintray'
-    gitUrl = 'https://github.com/nisrulz/UploadToBintray.git'
-    githubRepository = 'nisrulz/UploadToBintray'
-
-    libraryVersion = version
-
-    developerId = 'nisrulz'
-    developerName = 'Nishant Srivastava'
-    developerEmail = 'nisrulz@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
+group = 'com.github.vatsaldesai92'
+version = '1.0.1'
 
 android {
     compileSdkVersion 23
@@ -65,120 +34,26 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-//////////////////
-// Maven
-//////////////////
-
-def siteUrl = 'https://github.com/lopspower/CircularImageView'      // Homepage URL of the library
-def gitUrl = 'https://github.com/lopspower/CircularImageView.git'   // Git repository URL
-group = publishedGroupId                                          // Maven Group ID for the artifact
-
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                groupId publishedGroupId
-                artifactId artifact
-
-                // Add your description here
-//                name 'com.desai.vatsal:mycustomwidgets'
-                name 'MyCustomWidgets'
-                description = 'This is an Android Library for developer to use android customized widgets and change fonts style easily.'
-                url siteUrl
-
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'vatsal'
-                        name 'Vatsal Desai'
-                        email 'vatsalrd92@gmail.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-
-                }
-            }
-        }
-    }
-}
-
-/////////////////
-// Bintray upload
-/////////////////
-
-apply plugin: 'com.jfrog.bintray'
-
-version = libraryVersion
-
+// build a jar with source files
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
 
 task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
+    failOnError false
+    source = android.sourceSets.main.java.sourceFiles
     classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    classpath += configurations.compile
 }
 
+// build a jar with javadoc
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'
     from javadoc.destinationDir
 }
+
 artifacts {
-    archives javadocJar
     archives sourcesJar
-}
-
-// Bintray
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    // First try to read from local.properties
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-//    def gpgpassphrase = properties.getProperty("bintray.gpg.password")
-//
-    // If the properties aren't set in a properties file, load from environment (needed for CI)
-    if (user == null) {
-        user = System.getenv('BINTRAY_USERNAME')
-    }
-    if (key == null) {
-        key = System.getenv('BINTRAY_APIKEY')
-    }
-//    if (gpgpassphrase == null) {
-//        gpgpassphrase = System.getenv('BINTRAY_GPG_PASSPHRASE')
-//    }
-
-
-    configurations = ['archives']
-    pkg {
-        repo = 'maven'
-        name = 'mycustomwidgets'
-        desc = libraryDescription
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-        publicDownloadNumbers = true
-        version {
-            desc = libraryDescription
-            gpg {
-                sign = true //Determines whether to GPG sign the files. The default is false
-//                passphrase = gpgpassphrase
-                //Optional. The passphrase for GPG signing'
-            }
-        }
-    }
+    archives javadocJar
 }
