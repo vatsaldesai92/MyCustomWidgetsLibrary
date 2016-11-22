@@ -14,18 +14,18 @@ Example is avilable in app module.
 ###Gradle:
 ~~~
 dependencies {
-    compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
+	compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
 }
 ~~~
 
 ###Maven:
 ~~~
-    allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
 	}
+}
 ~~~
 
 ##Usage
@@ -36,10 +36,10 @@ dependencies {
 
 - if user add .ttf file path in string.xml
 ~~~
-  <string name="font5">verdana.ttf</string>
+    <string name="font5">verdana.ttf</string>
 
-  <com.desai.vatsal.mycustomwidgets.MyCustomTextView
-  	android:layout_width="wrap_content"
+    <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="my dynamic textview 3"
@@ -47,16 +47,16 @@ dependencies {
 ~~~
 - if user add .ttf file in assets folder
 ~~~
-  <com.desai.vatsal.mycustomwidgets.MyCustomTextView
-  	android:layout_width="wrap_content"
+    <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="my dynamic textview 1"
         app:fontPath="verdana.ttf" />
 ~~~
 - if user create folder fonts in assets folder then add .ttf file in it
 ~~~
-  <com.desai.vatsal.mycustomwidgets.MyCustomTextView
-  	android:layout_width="wrap_content"
+    <com.desai.vatsal.mycustomwidgets.MyCustomTextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="my dynamic textview 1"
         app:fontPath="fonts/verdana.ttf" />
