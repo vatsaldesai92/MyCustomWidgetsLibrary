@@ -11,20 +11,20 @@ Example is avilable in app module.
 
 ##Download
 
-###Gradle:
-~~~
-dependencies {
-	compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
-}
-~~~
-
-###Maven:
+###Gradle dependency:
+- Add the following to your project level build.gradle:
 ~~~
 allprojects {
 	repositories {
 		...
 		maven { url "https://jitpack.io" }
 	}
+}
+~~~
+- Add this to your app build.gradle:
+~~~
+dependencies {
+	compile 'com.github.vatsaldesai92:MyCustomWidgetsLibrary:1.0.1'
 }
 ~~~
 
