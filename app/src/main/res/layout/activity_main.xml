@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:title="@string/app_name"
-        app:titleTextColor="#ffffff" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
